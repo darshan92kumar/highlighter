@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
+    <style>
+        .highlight {
+            font-weight: bold;
+            color: green;
+            background: orange;
+        }
+    </style>
+    <title>Highlighter</title>
+</head>
+
+<body>
+     
+    <!-- <input id="search" type="text" value="burn"> -->
+	<label>Enter element to be searched :</label>
+    <input type="text" name="name" id="search" placeholder="enter search element" /><br><br>
+	<label>Enter HTML to search in :</label>
+	<input type="text" name="name" id="html" placeholder="enter html" />
+	
+	<button onclick="myFunction()">Try it</button>
+
+    
+
+    <script>
+    function myFunction() {
+      var x = document.getElementById("html").value;
+      document.getElementById("demo").innerHTML = x;
+	  
+	  
+	  $('.searchable').each(function() {
+                    var search_value = $("#search").val();
+                    var search_regexp = new RegExp(search_value, "g");
+                    $(this).html($(this).html().replace(search_regexp, "<span class = 'highlight'>" + search_value + "</span>"));
+                });
+    }
+    </script>
+    
+		
+    <div class="searchable">	     
+		<p id="demo"></p>
+		
+		
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+
+    </div>
+</body>
+
+</html>
